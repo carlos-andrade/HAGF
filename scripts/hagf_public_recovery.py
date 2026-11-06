@@ -19,14 +19,27 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse, unquote
-from urllib.request import Request, urlopen
+from urllib.request import Request, urlopen, HTTPRedirectHandler, build_opener
 from urllib.error import HTTPError, URLError
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "config" / "fontes_publicas.json"
 OUT = ROOT / "dados" / "recovery"
 REPORTS = ROOT / "research" / "execucoes"
-USER_AGENT = "HAGF-Public-Document-Recovery/1.0 (explicit-URL downloads; no crawler)"
+USER_AGENT = "HAGF-Public-Document-Recovery/1.1 (explicit-URL downloads; no crawler)"
+
+
+class AllowlistedRedirectHandler(HTTPRedirectHandler):
+    """Valida esquema e host do destino antes de seguir qualquer redirecionamento."""
+    def __init__(self, allowed_hosts: list[str]):
+        super().__init__()
+        self.allowed_hosts = {h.lower() for h in allowed_hosts}
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        ok, reason = validate_url(newurl, list(self.allowed_hosts))
+        if not ok:
+            raise URLError(f"Redirecionamento bloqueado: {reason}")
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
 def utc_now() -> str:
@@ -77,8 +90,9 @@ def download_one(source: dict, policy: dict, execute: bool) -> dict:
     max_bytes = int(policy.get("max_file_mb", 80)) * 1024 * 1024
     timeout = int(policy.get("request_timeout_seconds", 25))
     req = Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/pdf,application/octet-stream,*/*"})
+    opener = build_opener(AllowlistedRedirectHandler(policy["allowed_hosts"]))
     try:
-        with urlopen(req, timeout=timeout) as response:
+        with opener.open(req, timeout=timeout) as response:
             final_url = response.geturl()
             ok, why = validate_url(final_url, policy["allowed_hosts"])
             if not ok:
@@ -98,10 +112,13 @@ def download_one(source: dict, policy: dict, execute: bool) -> dict:
             # Evita gravar páginas HTML por engano como se fossem documentos baixáveis.
             if "text/html" in content_type or data.lstrip()[:20].lower().startswith((b"<!doctype html", b"<html")):
                 return {**base, "status": "BLOCKED_HTML_NOT_FILE", "content_type": content_type}
-            if content_type not in ("application/pdf", "application/octet-stream", "application/zip",
-                                    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-                                    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"):
+            allowed_types = ("application/pdf", "application/octet-stream", "application/zip",
+                             "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+            if content_type not in allowed_types:
                 return {**base, "status": "REVIEW_UNEXPECTED_CONTENT_TYPE", "content_type": content_type}
+            if content_type == "application/pdf" and not data.startswith(b"%PDF-"):
+                return {**base, "status": "BLOCKED_INVALID_PDF_SIGNATURE", "content_type": content_type}
             OUT.mkdir(parents=True, exist_ok=True)
             target = OUT / name
             if target.exists():
