@@ -25,6 +25,19 @@ class PreservationLedgerTests(unittest.TestCase):
             ROOT / "dados" / "recovery",
         )
         self.assertEqual(record["status"], "RECOVERED_PRIOR_RUN_NOT_MATERIALIZED")
+        self.assertEqual(record["bytes"], 0)
+        self.assertEqual(record["sha256"], "")
+        record = ledger.classify_source(
+            {
+                "id": "PDF2",
+                "download_url": "https://example.org/b.pdf",
+                "previous_recovery": {"bytes": 123, "sha256": "a" * 64, "package": "archive.zip"},
+            },
+            ROOT / "dados" / "recovery",
+        )
+        self.assertEqual(record["bytes"], 123)
+        self.assertEqual(record["sha256"], "a" * 64)
+        self.assertIn("archive.zip", record["notes"])
 
     def test_local_archive_is_hashed_and_marked_preserved(self):
         with tempfile.TemporaryDirectory(dir=ROOT) as tmp:
