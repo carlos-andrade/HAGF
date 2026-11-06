@@ -1,6 +1,6 @@
 # HAGF — Operação de recuperação e preservação documental V1.1
 
-**Estado:** coletor de ficheiros diretos e ledger automatizado implementados; execução do novo workflow ainda pendente de validação.  
+**Estado:** coletor de ficheiros diretos e ledger automatizado implementados; GitHub Actions #10 concluído com sucesso em 06/11/2026.  
 **Escopo:** downloads explicitamente configurados e autorizados, inventário automatizado, metadados, integridade e relatórios.
 
 ## Componentes
@@ -55,7 +55,7 @@ O workflow `.github/workflows/hagf-public-recovery.yml`:
 4. executa o recuperador em dry-run;
 5. publica os relatórios como artefacto por 90 dias.
 
-O workflow é iniciado por `workflow_dispatch`. A atualização do YAML não significa que a execução tenha sido disparada ou validada. O estado deve ser confirmado pelo resultado real da execução no GitHub Actions.
+O workflow é iniciado por alterações relevantes em main e também por `workflow_dispatch`. A execução #10 concluiu com sucesso: compilação, 11 testes, ledger JSON/CSV e dry-run do recuperador. [Consultar execução #10](https://github.com/carlos-andrade/HAGF/actions/runs/42257952950).
 
 ## Restrições da origem AGF
 
