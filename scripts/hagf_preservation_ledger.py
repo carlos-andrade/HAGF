@@ -66,10 +66,18 @@ def classify_source(source: dict, archive_root: Path) -> dict:
             return result
 
     if direct_url:
+        prior = source.get("previous_recovery", {})
         result.update(
             status="RECOVERED_PRIOR_RUN_NOT_MATERIALIZED",
             capture_method="DIRECT_FILE_URL",
-            notes="Existe URL direta; artefacto não está presente no workspace atual. Não presumir cópia local.",
+            bytes=int(prior.get("bytes", 0)),
+            sha256=prior.get("sha256", ""),
+            notes=(
+                "Recuperação anterior documentada; binário não está no workspace atual. "
+                f"Pacote: {prior.get('package', 'não informado')}; "
+                f"artefacto Actions: {prior.get('github_actions_artifact_id', 'não informado')}. "
+                "Não presumir cópia local neste workspace."
+            ),
         )
         return result
 
