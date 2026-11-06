@@ -18,6 +18,9 @@ Repositório independente para pesquisa documental, mapeamento de fontes públic
 - Primeira execução: [Relatório inicial](research/EXECUCAO_INICIAL_AGF_2026-11-06_V1.0.md)
 - Correção de escopo de dados públicos: [Nota de correção](research/NOTA_CORRECAO_ACESSO_DADOS_PUBLICOS_V1.0.md)
 - Inventário atualizado: [Fontes públicas AGF V1.1](research/INVENTARIO_FONTES_PUBLICAS_AGF_2026-11-06_V1.1.md)
+- Análise do PDF de Privacidade: [Relatório V1.0](research/ANALISE_POLITICA_PRIVACIDADE_AGF_2025_V1.0.md)
+- Comparação de termos e políticas: [Diligência cruzada V1.0](research/DILIGENCIA_CRUZADA_TERMOS_PRIVACIDADE_AGF_V1.0.md)
+- Execução confirmada: [Relatório JSON de 06/11/2026](research/execucoes/HAGF_PUBLIC_RECOVERY_20261106T160428Z.json)
 - Operação de recuperação: [Manual do coletor](docs/OPERACAO_COLETA_PUBLICA_V1.0.md)
 
 ## Coletor de documentos públicos
@@ -29,7 +32,7 @@ O coletor baixa somente arquivos com URLs diretas, cadastradas explicitamente no
 - Testes: [tests/test_hagf_public_recovery.py](tests/test_hagf_public_recovery.py)
 - Workflow: [HAGF Public Recovery](.github/workflows/hagf-public-recovery.yml)
 
-O processo não rastreia páginas, não descobre links automaticamente, não acessa áreas autenticadas, não contorna paywalls ou CAPTCHAs e não coleta dados pessoais. Os arquivos baixados são registrados com SHA-256 e relatório JSON.
+O processo não rastreia páginas, não descobre links automaticamente, não acessa áreas autenticadas, não contorna paywalls ou CAPTCHAs e não coleta dados pessoais. Os arquivos baixados são registrados com SHA-256 e relatório JSON. Em razão das restrições de automação publicadas nos Termos do Site AGF, o workflow está limitado a validação manual e testes; não executa downloads automáticos em push.
 
 ## Estrutura
 
