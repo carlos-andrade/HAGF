@@ -1,6 +1,6 @@
 # HAGF — Operação de recuperação de documentos públicos V1.0
 
-**Estado:** implementado; execução inicial em modo de validação  
+**Estado:** implementado; execução em GitHub Actions configurada para mudanças no manifesto  
 **Escopo:** downloads pontuais de arquivos com URL direta, declarada e autorizada no manifesto.
 
 ## O que o script faz
