@@ -20,6 +20,7 @@ Repositório independente para pesquisa documental, mapeamento de fontes públic
 - Inventário atualizado: [Fontes públicas AGF V1.1](research/INVENTARIO_FONTES_PUBLICAS_AGF_2026-11-06_V1.1.md)
 - Análise do PDF de Privacidade: [Relatório V1.0](research/ANALISE_POLITICA_PRIVACIDADE_AGF_2025_V1.0.md)
 - Comparação de termos e políticas: [Diligência cruzada V1.0](research/DILIGENCIA_CRUZADA_TERMOS_PRIVACIDADE_AGF_V1.0.md)
+- Dicionário técnico: [Métricas AGF e regras de qualidade de dados](knowledge/dicionario_metodologia_agf_v1.0.json)
 - Execução confirmada: [Relatório JSON de 06/11/2026](research/execucoes/HAGF_PUBLIC_RECOVERY_20261106T160428Z.json)
 - Operação de recuperação: [Manual do coletor](docs/OPERACAO_COLETA_PUBLICA_V1.0.md)
 
