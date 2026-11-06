@@ -25,6 +25,12 @@ A versão indexada declara última atualização em outubro de 2025. A política
 | AGF_JBI_BESST_DCO | Trilhas JBI, BESST e DCO | https://ajuda.agf.com.br/pt-BR/articles/16736791-estou-comecando-agora-como-escolher-por-onde-comecar-no-agf-educacional |
 | AGF_MBA_VALUE_INVESTING | MBA em Value Investing | https://ajuda.agf.com.br/pt-BR/articles/16761120-o-que-e-o-mba-em-value-investing-e-como-ele-se-diferencia-dos-outros-treinamentos-do-agf |
 | AGF_APP_OVERVIEW | Funcionalidades do App AGF | https://ajuda.agf.com.br/pt-BR/articles/16736693-o-que-e-o-app-agf |\n| AGF_REGULATORY_INDEX | Índice regulatório institucional | https://institucional.acoesgarantem.com.br/regulatorio/ |\n| AGF_BLOG_INDEX | Índice do blog institucional | https://institucional.acoesgarantem.com.br/blog/ |
+| AGF_B3_SYNC_DIVERGENCES | Limitações e divergências da sincronização B3 | https://ajuda.agf.com.br/pt-BR/articles/16753937-minha-carteira-apresenta-divergencias-ou-operacoes-duplicadas-o-que-pode-causar-isso |
+| AGF_SOLUTION_COMPARISON | Educacional, App, Assessoria e Wealth | https://ajuda.agf.com.br/pt-BR/articles/16736754-como-saber-qual-solucao-e-mais-adequada-para-mim |
+| AGF_WEALTH_MODELS | Modelos de atendimento Wealth | https://ajuda.agf.com.br/pt-BR/articles/16808293-quais-sao-os-modelos-de-atendimento-do-agf-wealth-e-como-funcionam |
+| AGF_WEALTH_CUSTOM_STRATEGY | Personalização de carteira Wealth | https://ajuda.agf.com.br/pt-BR/articles/16808134-como-e-definida-a-estrategia-da-minha-carteira-todos-os-clientes-recebem-a-mesma-composicao |
+| AGF_PRODUCT_ENTITLEMENTS | Direitos de acesso aos produtos | https://ajuda.agf.com.br/pt-BR/articles/16736710-ao-contratar-um-produto-do-agf-tenho-acesso-automatico-aos-demais |
+| AGF_APP_B3_SYNC_GUIDE_2024 | Guia institucional de sincronização B3 (2024) | https://institucional.acoesgarantem.com.br/blog/aplicativo-agf-conheca-todas-as-facilidades-e-funcionalidades-do-app/
 
 As referências acima são páginas HTML públicas. Foram cadastradas como fontes documentais, não como arquivos baixáveis. A rotina de recuperação não requisita essas páginas.
 
@@ -78,9 +84,42 @@ A AGF descreve funcionalidades para acompanhar carteira, importar investimentos 
 
 Fonte: artigo AGF_APP_OVERVIEW.
 
+### 3.7. Integração da carteira com a B3 — limitações documentadas
+
+A Central de Ajuda atual informa que a integração com a B3 considera o histórico disponível a partir de **novembro de 2019**. Operações anteriores podem ser representadas por uma compra de ajuste em **01/11/2019**, usando o preço de fechamento dessa data. Portanto, essa posição inicial não representa o histórico real completo de compras ou proventos anteriores.
+
+A AGF também informa que os dados recebidos pela integração B3 **não consideram taxas de corretagem**. Já a importação por nota de corretagem pode distribuir custos entre os ativos. Eventos societários — bonificações, desdobramentos, grupamentos e subscrições — também podem alterar quantidade e preço médio. Lançamentos identificados como “Ajuste” podem ser criados para alinhar a posição importada.
+
+**Impacto para o HAGF:** não usar uma carteira sincronizada com a B3 como fonte histórica completa anterior a novembro de 2019. Não presumir que o preço médio sincronizado incorpora taxas de corretagem. Em análises de rentabilidade, proventos e custo histórico, separar:
+1. posição importada da B3;
+2. ajustes de abertura anteriores ao limite histórico;
+3. taxas e custos ausentes da integração;
+4. eventos societários e correções manuais.
+
+Fonte: artigo AGF_B3_SYNC_DIVERGENCES. O guia institucional de dezembro/2024 descreve o fluxo de sincronização, mas deve ser tratado como documentação histórica e comparado à Central de Ajuda atual.
+
+### 3.8. Segmentação de produtos e serviços
+
+A Central de Ajuda diferencia quatro soluções:
+- **Educacional:** formação e aprendizagem;
+- **App:** ferramentas de apoio para quem decide e investe por conta própria;
+- **Assessoria:** acompanhamento especializado mantendo o cliente como decisor;
+- **Wealth:** gestão patrimonial mais ampla e personalizada.
+
+A contratação de um produto não concede acesso automático aos demais; cada solução tem contratação e direitos próprios.
+
+No Wealth, a AGF descreve três modelos:
+- **Consultoria BTG:** custódia no BTG; o cliente participa da execução das operações;
+- **Carteira Administrada:** custódia no BTG e movimentações realizadas pelo gestor dentro das diretrizes aprovadas;
+- **Consultoria Externa:** custódia na instituição escolhida pelo cliente; o cliente executa as operações.
+
+A AGF declara que a estratégia Wealth é personalizada conforme objetivos, horizonte, perfil de risco, patrimônio, liquidez, renda desejada e novos aportes.
+
+Fontes: artigos AGF_SOLUTION_COMPARISON, AGF_PRODUCT_ENTITLEMENTS, AGF_WEALTH_MODELS e AGF_WEALTH_CUSTOM_STRATEGY.
+
 ## 4. Inventário e limites da coleta
 
-- O manifesto inclui referências institucionais, páginas de ajuda, índice regulatório, índice editorial e um PDF com link direto.
+- O manifesto inclui referências institucionais, páginas de ajuda, índice regulatório, índice editorial, referências sobre B3 e Wealth, e um PDF com link direto.
 - Apenas o PDF foi marcado com `download_url`.
 - Páginas HTML permanecem como referências; não são tratadas como downloads.
 - Cursos, aulas, comunidade e materiais vinculados a login/contratação permanecem fora da coleta automatizada.
@@ -95,6 +134,7 @@ Fonte: artigo AGF_APP_OVERVIEW.
 4. Documentar a fórmula matemática da Fórmula AGF somente se houver fonte pública explícita.
 5. Aprofundar metodologia de Preço Teto, margem de segurança, DPA histórico/projetivo e critérios de seleção, distinguindo descrição pública de conteúdo de curso restrito.
 6. Criar um dicionário de dados próprio com definições, fonte, data de observação, limitações e nível de confiança.
+7. Incorporar o limite histórico de novembro/2019 e a ausência de taxas de corretagem na integração B3 às regras de qualidade de dados do projeto.
 
 ## 6. Próxima sequência
 
