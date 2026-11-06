@@ -121,11 +121,11 @@ def download_one(source: dict, policy: dict, execute: bool) -> dict:
 
 
 def main() -> int:
+    global CONFIG
     parser = argparse.ArgumentParser(description="Coleta controlada de arquivos públicos do HAGF.")
     parser.add_argument("--execute", action="store_true", help="Executa downloads de URLs diretas explícitas.")
     parser.add_argument("--config", type=Path, default=CONFIG)
     args = parser.parse_args()
-    global CONFIG
     CONFIG = args.config
     cfg = load_config()
     policy = cfg["policy"]
