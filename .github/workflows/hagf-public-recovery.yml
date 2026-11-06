@@ -19,16 +19,19 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Validate collector and run unit tests
+      - name: Compile, test and generate preservation ledger
         run: |
-          python -m py_compile scripts/hagf_public_recovery.py
+          python -m py_compile scripts/hagf_public_recovery.py scripts/hagf_preservation_ledger.py
           python -m unittest discover -s tests -v
+          python scripts/hagf_preservation_ledger.py
           python scripts/hagf_public_recovery.py
 
-      - name: Upload validation report
+      - name: Upload preservation and validation reports
         uses: actions/upload-artifact@v4
         with:
-          name: hagf-public-recovery-validation
-          path: research/execucoes/*.json
-          if-no-files-found: warn
-          retention-days: 30
+          name: hagf-preservation-ledger
+          path: |
+            research/execucoes/*.json
+            research/execucoes/*.csv
+          if-no-files-found: error
+          retention-days: 90
