@@ -1,52 +1,82 @@
-# HAGF — Operação de recuperação de documentos públicos V1.0
+# HAGF — Operação de recuperação e preservação documental V1.1
 
-**Estado:** coletor implementado; workflow limitado a validação manual, sem download automático  
-**Escopo:** downloads pontuais de arquivos com URL direta, declarada e autorizada no manifesto.
+**Estado:** coletor de ficheiros diretos e ledger automatizado implementados; execução do novo workflow ainda pendente de validação.  
+**Escopo:** downloads explicitamente configurados e autorizados, inventário automatizado, metadados, integridade e relatórios.
 
-## O que o script faz
+## Componentes
+
+### 1. Recuperador de ficheiros diretos
+
+`scripts/hagf_public_recovery.py`
 
 - Lê `config/fontes_publicas.json`.
-- Considera somente o campo `download_url`; o campo `url` é referência documental e nunca é requisitado pelo script.
+- Considera somente o campo `download_url`; o campo `url` é referência documental e nunca é requisitado.
 - Exige HTTPS e host explicitamente permitido.
 - Revalida o host após redirecionamentos.
-- Limita o tamanho do arquivo.
+- Limita o tamanho do ficheiro.
 - Bloqueia HTML, respostas vazias e tipos inesperados.
-- Calcula SHA-256 e mantém relatório JSON de cada execução.
-- Evita sobrescrever silenciosamente arquivos diferentes.
+- Calcula SHA-256 e mantém relatório JSON.
+- Evita sobrescrever silenciosamente ficheiros diferentes.
 
-## O que o script NÃO faz
+O modo `--execute` só pode ser utilizado para fontes e métodos cuja automação esteja permitida. A existência de URL direto, isoladamente, não substitui a avaliação das condições aplicáveis.
 
-- Não rastreia páginas nem segue links encontrados em HTML.
-- Não consulta sitemap ou robots.txt automaticamente.
-- Não faz scraping de artigos ou páginas.
-- Não acessa login, áreas pagas, comunidade ou APIs privadas.
-- Não contorna CAPTCHA, paywall ou controles de acesso.
-- Não coleta dados pessoais.
+### 2. Ledger de preservação
 
-## Como executar
+`scripts/hagf_preservation_ledger.py`
 
-Validação sem rede e sem downloads:
+- Lê todas as fontes do manifesto.
+- Verifica artefactos locais declarados por `archive_path`.
+- Calcula tamanho e SHA-256 dos ficheiros locais.
+- Classifica fontes sem cópia ou sem adaptador autorizado.
+- Gera relatórios JSON e CSV em `research/execucoes/`.
+- Não faz requisições HTTP e não captura páginas.
+
+### 3. Testes
+
+`tests/test_hagf_public_recovery.py` e `tests/test_hagf_preservation_ledger.py`.
+
+## Execução local
 
 ```bash
+python3 -m py_compile scripts/hagf_public_recovery.py scripts/hagf_preservation_ledger.py
+python3 -m unittest discover -s tests -v
+python3 scripts/hagf_preservation_ledger.py
 python3 scripts/hagf_public_recovery.py
 ```
 
-Download pontual de URL direta, após validação individual da fonte e revisão das condições aplicáveis:
+Para download direto, usar `--execute` somente após verificar a política da fonte e a autorização do método.
 
-```bash
-python3 scripts/hagf_public_recovery.py --execute
-```
+## Workflow GitHub Actions
 
-**Atenção:** os Termos do Site AGF (dezembro/2025) vedam scraping, mineração de dados e uso de ferramentas automatizadas sem autorização expressa/prévia. Por governança, o workflow GitHub Actions foi limitado a testes e validação sem downloads. Não executar crawling, scraping ou downloads automatizados em lote nos domínios AGF. O modo `--execute` permanece para uso pontual e deliberado, após avaliação da fonte e das condições aplicáveis.
+O workflow `.github/workflows/hagf-public-recovery.yml`:
+1. compila os dois scripts;
+2. executa todos os testes;
+3. gera o ledger JSON/CSV;
+4. executa o recuperador em dry-run;
+5. publica os relatórios como artefacto por 90 dias.
 
-## Como adicionar uma fonte
+O workflow é iniciado por `workflow_dispatch`. A atualização do YAML não significa que a execução tenha sido disparada ou validada. O estado deve ser confirmado pelo resultado real da execução no GitHub Actions.
 
-Adicionar um objeto em `sources`, mantendo a referência pública em `url` e preenchendo `download_url` somente quando houver um link direto para um arquivo publicamente oferecido para download. A URL deve pertencer a um host da allowlist. Não inserir URLs de páginas HTML no campo de download.
+## Restrições da origem AGF
 
-## Interpretação da primeira execução
+Os Termos de Uso do Site e do App identificados na diligência restringem scraping, mineração de dados e ferramentas automatizadas sem autorização prévia. Portanto:
 
-As fontes inicialmente cadastradas são referências institucionais e páginas HTML, não links diretos de arquivos. Portanto, o resultado esperado é `SKIPPED_NO_DIRECT_DOWNLOAD_URL`. Isso é intencional: não se deve rotular páginas HTML como documentos baixados.
+- não rastrear páginas nem descobrir links por crawling;
+- não fazer scraping de artigos ou páginas;
+- não aceder a login, áreas pagas, comunidade ou APIs privadas;
+- não contornar CAPTCHA, paywall ou controles de acesso;
+- não recolher dados pessoais;
+- não assumir que página pública equivale a autorização para extração automatizada.
 
-## Próxima etapa
+A ingestão automatizada das referências HTML depende de API/exportação oficial ou autorização específica que cubra o método pretendido. Enquanto isso, o ledger regista a pendência automaticamente.
 
-Alimentar o manifesto com URLs diretas de PDFs, planilhas ou outros arquivos que sejam efetivamente disponibilizados ao público para download. Cada novo link deve ser verificado individualmente antes de ser adicionado.
+## Estados do ledger
+
+- `PRESERVED`: ficheiro local existe e foi validado com tamanho e SHA-256.
+- `RECOVERED_PRIOR_RUN_NOT_MATERIALIZED`: há URL direta e registo de recuperação anterior, mas o binário não está no workspace atual.
+- `AUTHORIZATION_REQUIRED`: referência HTML sem adaptador autorizado.
+- `BLOCKED_PATH_TRAVERSAL`: caminho declarado resolve fora da raiz do repositório.
+
+## Artefactos
+
+O workflow publica JSON e CSV como artefacto do GitHub Actions com retenção de 90 dias. O repositório mantém código, documentação, metadados e análises; ficheiros integrais de terceiros não são publicados sem base de redistribuição.
