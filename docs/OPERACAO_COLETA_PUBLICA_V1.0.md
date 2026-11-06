@@ -1,6 +1,6 @@
 # HAGF — Operação de recuperação de documentos públicos V1.0
 
-**Estado:** implementado; execução em GitHub Actions configurada para mudanças no manifesto  
+**Estado:** coletor implementado; workflow limitado a validação manual, sem download automático  
 **Escopo:** downloads pontuais de arquivos com URL direta, declarada e autorizada no manifesto.
 
 ## O que o script faz
@@ -31,11 +31,13 @@ Validação sem rede e sem downloads:
 python3 scripts/hagf_public_recovery.py
 ```
 
-Download apenas das URLs diretas adicionadas manualmente ao manifesto:
+Download pontual de URL direta, após validação individual da fonte e revisão das condições aplicáveis:
 
 ```bash
 python3 scripts/hagf_public_recovery.py --execute
 ```
+
+**Atenção:** os Termos do Site AGF (dezembro/2025) vedam scraping, mineração de dados e uso de ferramentas automatizadas sem autorização expressa/prévia. Por governança, o workflow GitHub Actions foi limitado a testes e validação sem downloads. Não executar crawling, scraping ou downloads automatizados em lote nos domínios AGF. O modo `--execute` permanece para uso pontual e deliberado, após avaliação da fonte e das condições aplicáveis.
 
 ## Como adicionar uma fonte
 
