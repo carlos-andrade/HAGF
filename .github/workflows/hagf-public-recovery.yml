@@ -1,6 +1,10 @@
 name: HAGF Public Recovery
 
 on:
+  push:
+    paths:
+      - "config/fontes_publicas.json"
+      - ".github/workflows/hagf-public-recovery.yml"
   workflow_dispatch:
     inputs:
       execute_downloads:
@@ -27,7 +31,7 @@ jobs:
 
       - name: Validate and execute
         env:
-          EXECUTE_DOWNLOADS: ${{ inputs.execute_downloads }}
+          EXECUTE_DOWNLOADS: ${{ github.event_name == 'push' || inputs.execute_downloads }}
         run: |
           python -m py_compile scripts/hagf_public_recovery.py
           if [ "$EXECUTE_DOWNLOADS" = "true" ]; then
