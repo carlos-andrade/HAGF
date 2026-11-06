@@ -16,35 +16,35 @@ Repositório independente para pesquisa documental, mapeamento de fontes públic
 
 ## Estado atual
 
-**Fase:** inventário documental público e recuperação controlada.
+**Fase:** motor inicial de preservação automatizada implementado; validação de execução pendente.
 
 - Prompt de pesquisa: [Agente HAGF PhD](PROMPTS/PROMPT_AGENTE_HAGF_PHD_V1.0.md)
 - Primeira execução: [Relatório inicial](research/EXECUCAO_INICIAL_AGF_2026-11-06_V1.0.md)
 - Correção de escopo de dados públicos: [Nota de correção](research/NOTA_CORRECAO_ACESSO_DADOS_PUBLICOS_V1.0.md)
 - Inventário atualizado: [Fontes públicas AGF V1.1](research/INVENTARIO_FONTES_PUBLICAS_AGF_2026-11-06_V1.1.md)
 - Plano de preservação automatizada: [Plano V1.1](docs/PLANO_PRESERVACAO_DOCUMENTAL_AGF_V1.1.md)
-- Plano anterior: [Plano V1.0](docs/PLANO_PRESERVACAO_DOCUMENTAL_AGF_V1.0.md)
+- Motor de preservação: [Documentação técnica V1.0](docs/MOTOR_PRESERVACAO_AUTOMATIZADA_V1.0.md)
 - Análise do PDF de Privacidade: [Relatório V1.0](research/ANALISE_POLITICA_PRIVACIDADE_AGF_2025_V1.0.md)
 - Comparação de termos e políticas: [Diligência cruzada V1.0](research/DILIGENCIA_CRUZADA_TERMOS_PRIVACIDADE_AGF_V1.0.md)
 - Dicionário técnico: [Métricas AGF e regras de qualidade de dados](knowledge/dicionario_metodologia_agf_v1.0.json)
 - Integração B3: [Impacto na qualidade e reconstrução histórica](research/IMPACTO_INTEGRACAO_B3_AGF_V1.0.md)
-- Execução confirmada: [Relatório JSON de 06/11/2026](research/execucoes/HAGF_PUBLIC_RECOVERY_20261106T160428Z.json)
-- Operação de recuperação: [Manual do coletor](docs/OPERACAO_COLETA_PUBLICA_V1.0.md)
+- Execução confirmada anterior: [Relatório JSON de 06/11/2026](research/execucoes/HAGF_PUBLIC_RECOVERY_20261106T160428Z.json)
 
-## Coletor de documentos públicos
+## Motor de preservação
 
-O coletor baixa somente arquivos com URLs diretas, cadastradas explicitamente no manifesto.
-
-- Script: [scripts/hagf_public_recovery.py](scripts/hagf_public_recovery.py)
+- Ledger: [scripts/hagf_preservation_ledger.py](scripts/hagf_preservation_ledger.py)
+- Testes: [tests/test_hagf_preservation_ledger.py](tests/test_hagf_preservation_ledger.py)
+- Coletor de ficheiros diretos: [scripts/hagf_public_recovery.py](scripts/hagf_public_recovery.py)
 - Manifesto: [config/fontes_publicas.json](config/fontes_publicas.json)
-- Testes: [tests/test_hagf_public_recovery.py](tests/test_hagf_public_recovery.py)
 - Workflow: [HAGF Public Recovery](.github/workflows/hagf-public-recovery.yml)
 
-O processo não rastreia páginas, não descobre links automaticamente, não acessa áreas autenticadas, não contorna paywalls ou CAPTCHAs e não coleta dados pessoais. Em razão das restrições de automação publicadas nos Termos do Site AGF, a ingestão automatizada dessas páginas depende de API/exportação oficial ou autorização específica. O workflow atual valida o código e os testes; não deve ser interpretado como execução de download das 22 referências HTML.
+O ledger verifica automaticamente os artefactos locais declarados no manifesto, calcula tamanho e SHA-256 e gera relatórios JSON e CSV. O workflow compila os scripts, executa testes, gera o ledger e publica os relatórios como artefacto. O ledger não requisita páginas web.
+
+A ingestão automatizada das páginas AGF depende de API/exportação oficial ou autorização específica, conforme as condições de uso identificadas. Não se contornam autenticação, paywalls, CAPTCHA ou restrições contratuais.
 
 ## Política de preservação
 
-As 23 fontes do manifesto não são 23 ficheiros descarregáveis: há 1 PDF com URL direto de download e 22 páginas/referências HTML. O estado real de preservação deve ser registado individualmente. Consulte o [Plano de Preservação Automatizada](docs/PLANO_PRESERVACAO_DOCUMENTAL_AGF_V1.1.md). Não marcar uma referência como preservada sem cópia efetiva, metadados e hash validados.
+As 23 fontes do manifesto não são 23 ficheiros descarregáveis: há 1 PDF com URL direto de download e 22 páginas/referências HTML. Não marcar uma referência como preservada sem cópia efetiva, metadados e hash validados.
 
 ## Estrutura
 
