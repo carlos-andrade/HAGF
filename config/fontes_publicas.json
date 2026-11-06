@@ -124,6 +124,27 @@
       "url": "https://ajuda.agf.com.br/pt-BR/articles/16736693-o-que-e-o-app-agf",
       "download_url": null,
       "notes": "Artigo público sobre funcionalidades e escopo do App AGF."
+    },
+    {
+      "id": "AGF_REGULATORY_INDEX",
+      "type": "regulatory_reference",
+      "url": "https://institucional.acoesgarantem.com.br/regulatorio/",
+      "download_url": null,
+      "notes": "Índice regulatório institucional; requer inventário manual dos documentos efetivamente publicados."
+    },
+    {
+      "id": "AGF_BLOG_INDEX",
+      "type": "editorial_reference",
+      "url": "https://institucional.acoesgarantem.com.br/blog/",
+      "download_url": null,
+      "notes": "Índice público do blog institucional; não fazer crawling."
+    },
+    {
+      "id": "AGF_BLOG_ANALYSIS_LOUISE",
+      "type": "editorial_reference",
+      "url": "https://institucional.acoesgarantem.com.br/blog/veja-como-louise-barsi-analisa-as-empresas-para-comprar/",
+      "download_url": null,
+      "notes": "URL de artigo identificada em resultado do índice do blog; validar manualmente antes de usar como evidência."
     }
   ]
 }
