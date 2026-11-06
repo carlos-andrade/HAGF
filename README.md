@@ -16,7 +16,7 @@ Repositório independente para pesquisa documental, mapeamento de fontes públic
 
 ## Estado atual
 
-**Fase:** motor inicial de preservação automatizada implementado; validação de execução pendente.
+**Fase:** motor inicial implementado e validado no GitHub Actions; ingestão das 22 referências HTML bloqueada até canal oficial ou autorização específica.
 
 - Prompt de pesquisa: [Agente HAGF PhD](PROMPTS/PROMPT_AGENTE_HAGF_PHD_V1.0.md)
 - Primeira execução: [Relatório inicial](research/EXECUCAO_INICIAL_AGF_2026-11-06_V1.0.md)
@@ -29,7 +29,9 @@ Repositório independente para pesquisa documental, mapeamento de fontes públic
 - Comparação de termos e políticas: [Diligência cruzada V1.0](research/DILIGENCIA_CRUZADA_TERMOS_PRIVACIDADE_AGF_V1.0.md)
 - Dicionário técnico: [Métricas AGF e regras de qualidade de dados](knowledge/dicionario_metodologia_agf_v1.0.json)
 - Integração B3: [Impacto na qualidade e reconstrução histórica](research/IMPACTO_INTEGRACAO_B3_AGF_V1.0.md)
-- Execução confirmada anterior: [Relatório JSON de 06/11/2026](research/execucoes/HAGF_PUBLIC_RECOVERY_20261106T160428Z.json)
+- Execução de validação do motor: [GitHub Actions #10 — sucesso](https://github.com/carlos-andrade/HAGF/actions/runs/42257952950)
+- Solicitação de canal oficial de ingestão: [Minuta V1.0 — ainda não enviada](research/SOLICITACAO_CANAL_AUTOMATIZADO_AGF_V1.0.md)
+- Execução de recuperação anterior: [Relatório JSON de 06/11/2026](research/execucoes/HAGF_PUBLIC_RECOVERY_20261106T160428Z.json)
 
 ## Motor de preservação
 
@@ -39,7 +41,7 @@ Repositório independente para pesquisa documental, mapeamento de fontes públic
 - Manifesto: [config/fontes_publicas.json](config/fontes_publicas.json)
 - Workflow: [HAGF Public Recovery](.github/workflows/hagf-public-recovery.yml)
 
-O ledger verifica automaticamente os artefactos locais declarados no manifesto, calcula tamanho e SHA-256 e gera relatórios JSON e CSV. O workflow compila os scripts, executa testes, gera o ledger e publica os relatórios como artefacto. O ledger não requisita páginas web.
+O ledger verifica automaticamente os artefactos locais declarados no manifesto, calcula tamanho e SHA-256 e gera relatórios JSON e CSV. O workflow compila os scripts, executa 11 testes, gera o ledger e publica os relatórios como artefacto. Na execução #10: 23 fontes catalogadas; 22 em AUTHORIZATION_REQUIRED; 1 recuperação anterior documentada com hash e tamanho, mas não materializada no workspace do runner. O ledger não requisita páginas web.
 
 A ingestão automatizada das páginas AGF depende de API/exportação oficial ou autorização específica, conforme as condições de uso identificadas. Não se contornam autenticação, paywalls, CAPTCHA ou restrições contratuais.
 
