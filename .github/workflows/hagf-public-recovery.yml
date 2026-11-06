@@ -1,0 +1,47 @@
+name: HAGF Public Recovery
+
+on:
+  workflow_dispatch:
+    inputs:
+      execute_downloads:
+        description: "Baixar somente URLs diretas explicitamente declaradas no manifesto"
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  public-recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate and execute
+        env:
+          EXECUTE_DOWNLOADS: ${{ inputs.execute_downloads }}
+        run: |
+          python -m py_compile scripts/hagf_public_recovery.py
+          if [ "$EXECUTE_DOWNLOADS" = "true" ]; then
+            python scripts/hagf_public_recovery.py --execute
+          else
+            python scripts/hagf_public_recovery.py
+          fi
+
+      - name: Upload execution report and downloaded files
+        uses: actions/upload-artifact@v4
+        with:
+          name: hagf-public-recovery
+          path: |
+            research/execucoes/*.json
+            dados/recovery/*
+          if-no-files-found: warn
+          retention-days: 30
