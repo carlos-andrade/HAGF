@@ -75,6 +75,55 @@
       "url": "https://lp.agf.com.br/hubfs/Politica-de-Privacidade/Politica-de-Privacidade-AGF-Geral-rev-final-03-12.pdf",
       "download_url": "https://lp.agf.com.br/hubfs/Politica-de-Privacidade/Politica-de-Privacidade-AGF-Geral-rev-final-03-12.pdf",
       "notes": "PDF público diretamente vinculado em página oficial da AGF; última atualização declarada outubro de 2025. Uso para análise interna, respeitando direitos autorais."
+    },
+    {
+      "id": "AGF_MDI_ARTICLE",
+      "type": "help_article_reference",
+      "url": "https://ajuda.agf.com.br/pt-BR/articles/16753955-o-que-e-o-mapa-do-dividendo-inteligente-mdi-e-como-interpretar-as-datas",
+      "download_url": null,
+      "notes": "Artigo público sobre MDI; referência documental, sem download automatizado."
+    },
+    {
+      "id": "AGF_DPA_PRECO_TETO_YOC",
+      "type": "help_article_reference",
+      "url": "https://ajuda.agf.com.br/pt-BR/articles/16754007-o-que-significam-preco-teto-dpa-e-yield-on-cost-yoc",
+      "download_url": null,
+      "notes": "Artigo público sobre DPA, Preço Teto e YOC; referência documental."
+    },
+    {
+      "id": "AGF_RANKING_FORMULA",
+      "type": "help_article_reference",
+      "url": "https://ajuda.agf.com.br/pt-BR/articles/16754013-como-funciona-o-ranking-de-empresas-e-como-interpretar-seus-filtros",
+      "download_url": null,
+      "notes": "Artigo público sobre Ranking, Fórmula AGF e filtros."
+    },
+    {
+      "id": "AGF_BESST_PREVIDENCIARIA",
+      "type": "help_article_reference",
+      "url": "https://ajuda.agf.com.br/pt-BR/articles/16754018-empresa-previdenciaria-e-empresa-de-setor-besst-sao-a-mesma-coisa",
+      "download_url": null,
+      "notes": "Artigo público que diferencia empresa previdenciária de setor BESST."
+    },
+    {
+      "id": "AGF_JBI_BESST_DCO",
+      "type": "help_article_reference",
+      "url": "https://ajuda.agf.com.br/pt-BR/articles/16736791-estou-comecando-agora-como-escolher-por-onde-comecar-no-agf-educacional",
+      "download_url": null,
+      "notes": "Artigo público que apresenta o escopo declarado de JBI, BESST e DCO."
+    },
+    {
+      "id": "AGF_MBA_VALUE_INVESTING",
+      "type": "help_article_reference",
+      "url": "https://ajuda.agf.com.br/pt-BR/articles/16761120-o-que-e-o-mba-em-value-investing-e-como-ele-se-diferencia-dos-outros-treinamentos-do-agf",
+      "download_url": null,
+      "notes": "Artigo público sobre estrutura e carga horária declarada do MBA."
+    },
+    {
+      "id": "AGF_APP_OVERVIEW",
+      "type": "help_article_reference",
+      "url": "https://ajuda.agf.com.br/pt-BR/articles/16736693-o-que-e-o-app-agf",
+      "download_url": null,
+      "notes": "Artigo público sobre funcionalidades e escopo do App AGF."
     }
   ]
 }
