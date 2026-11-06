@@ -4,6 +4,8 @@
 **Escopo:** fontes públicas institucionais, documentação de ajuda e documentos diretamente disponibilizados para download.  
 **Método:** pesquisa documental e indexação manual de URLs específicas. Não foi executado crawler nem coleta automatizada de páginas HTML.
 
+**Manifesto atual:** 23 fontes cadastradas — 1 URL direta de arquivo e 22 referências documentais/institucionais. O único arquivo baixado nesta execução foi a Política de Privacidade AGF Geral (PDF).
+
 ## 1. Documento público com URL direta de download
 
 | ID | Documento | Tipo | URL | Situação |
