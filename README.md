@@ -30,7 +30,6 @@ Repositório independente para pesquisa documental, mapeamento de fontes públic
 - Dicionário técnico: [Métricas AGF e regras de qualidade de dados](knowledge/dicionario_metodologia_agf_v1.0.json)
 - Integração B3: [Impacto na qualidade e reconstrução histórica](research/IMPACTO_INTEGRACAO_B3_AGF_V1.0.md)
 - Execução de validação do motor: [GitHub Actions #10 — sucesso](https://github.com/carlos-andrade/HAGF/actions/runs/42257952950)
-- Solicitação de canal oficial de ingestão: [Minuta V1.0 — ainda não enviada](research/SOLICITACAO_CANAL_AUTOMATIZADO_AGF_V1.0.md)
 - Execução de recuperação anterior: [Relatório JSON de 06/11/2026](research/execucoes/HAGF_PUBLIC_RECOVERY_20261106T160428Z.json)
 
 ## Motor de preservação
