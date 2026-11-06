@@ -24,7 +24,7 @@ A versão indexada declara última atualização em outubro de 2025. A política
 | AGF_BESST_PREVIDENCIARIA | Empresas previdenciárias e BESST | https://ajuda.agf.com.br/pt-BR/articles/16754018-empresa-previdenciaria-e-empresa-de-setor-besst-sao-a-mesma-coisa |
 | AGF_JBI_BESST_DCO | Trilhas JBI, BESST e DCO | https://ajuda.agf.com.br/pt-BR/articles/16736791-estou-comecando-agora-como-escolher-por-onde-comecar-no-agf-educacional |
 | AGF_MBA_VALUE_INVESTING | MBA em Value Investing | https://ajuda.agf.com.br/pt-BR/articles/16761120-o-que-e-o-mba-em-value-investing-e-como-ele-se-diferencia-dos-outros-treinamentos-do-agf |
-| AGF_APP_OVERVIEW | Funcionalidades do App AGF | https://ajuda.agf.com.br/pt-BR/articles/16736693-o-que-e-o-app-agf |
+| AGF_APP_OVERVIEW | Funcionalidades do App AGF | https://ajuda.agf.com.br/pt-BR/articles/16736693-o-que-e-o-app-agf |\n| AGF_REGULATORY_INDEX | Índice regulatório institucional | https://institucional.acoesgarantem.com.br/regulatorio/ |\n| AGF_BLOG_INDEX | Índice do blog institucional | https://institucional.acoesgarantem.com.br/blog/ |
 
 As referências acima são páginas HTML públicas. Foram cadastradas como fontes documentais, não como arquivos baixáveis. A rotina de recuperação não requisita essas páginas.
 
@@ -80,7 +80,7 @@ Fonte: artigo AGF_APP_OVERVIEW.
 
 ## 4. Inventário e limites da coleta
 
-- O manifesto inclui referências institucionais, páginas de ajuda e um PDF com link direto.
+- O manifesto inclui referências institucionais, páginas de ajuda, índice regulatório, índice editorial e um PDF com link direto.
 - Apenas o PDF foi marcado com `download_url`.
 - Páginas HTML permanecem como referências; não são tratadas como downloads.
 - Cursos, aulas, comunidade e materiais vinculados a login/contratação permanecem fora da coleta automatizada.
