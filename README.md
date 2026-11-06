@@ -18,6 +18,7 @@ Repositório independente para pesquisa documental, mapeamento de fontes públic
 - Primeira execução: [Relatório inicial](research/EXECUCAO_INICIAL_AGF_2026-11-06_V1.0.md)
 - Correção de escopo de dados públicos: [Nota de correção](research/NOTA_CORRECAO_ACESSO_DADOS_PUBLICOS_V1.0.md)
 - Inventário atualizado: [Fontes públicas AGF V1.1](research/INVENTARIO_FONTES_PUBLICAS_AGF_2026-11-06_V1.1.md)
+- Plano de preservação documental: [Plano V1.0](docs/PLANO_PRESERVACAO_DOCUMENTAL_AGF_V1.0.md)
 - Análise do PDF de Privacidade: [Relatório V1.0](research/ANALISE_POLITICA_PRIVACIDADE_AGF_2025_V1.0.md)
 - Comparação de termos e políticas: [Diligência cruzada V1.0](research/DILIGENCIA_CRUZADA_TERMOS_PRIVACIDADE_AGF_V1.0.md)
 - Dicionário técnico: [Métricas AGF e regras de qualidade de dados](knowledge/dicionario_metodologia_agf_v1.0.json)
@@ -35,6 +36,10 @@ O coletor baixa somente arquivos com URLs diretas, cadastradas explicitamente no
 - Workflow: [HAGF Public Recovery](.github/workflows/hagf-public-recovery.yml)
 
 O processo não rastreia páginas, não descobre links automaticamente, não acessa áreas autenticadas, não contorna paywalls ou CAPTCHAs e não coleta dados pessoais. Os arquivos baixados são registrados com SHA-256 e relatório JSON. Em razão das restrições de automação publicadas nos Termos do Site AGF, o workflow está limitado a validação manual e testes; não executa downloads automáticos em push.
+
+## Política de preservação
+
+As 23 fontes do manifesto não são 23 ficheiros descarregáveis: há 1 PDF com URL direto de download e 22 páginas/referências HTML. O estado real de preservação deve ser registado individualmente. Consulte o [Plano de Preservação Documental](docs/PLANO_PRESERVACAO_DOCUMENTAL_AGF_V1.0.md). Não marcar uma referência como preservada sem cópia efetiva, metadados e hash validados.
 
 ## Estrutura
 
