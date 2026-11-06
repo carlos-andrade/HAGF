@@ -1,0 +1,21 @@
+{
+  "project": "HAGF",
+  "execution_id": "LOCAL-DRY-RUN-20261106T155649Z",
+  "started_at_utc": "2026-11-06T15:56:49+00:00",
+  "mode": "DRY_RUN",
+  "execution_scope": "Validação local do manifesto e da lógica de seleção de downloads explícitos; nenhuma requisição foi enviada aos domínios AGF.",
+  "source_count": 7,
+  "results": [
+    {"source_id":"AGF_SITE","status":"SKIPPED_NO_DIRECT_DOWNLOAD_URL"},
+    {"source_id":"AGF_SOBRE","status":"SKIPPED_NO_DIRECT_DOWNLOAD_URL"},
+    {"source_id":"AGF_AJUDA","status":"SKIPPED_NO_DIRECT_DOWNLOAD_URL"},
+    {"source_id":"AGF_EDUCACIONAL","status":"SKIPPED_NO_DIRECT_DOWNLOAD_URL"},
+    {"source_id":"AGF_APP_TERMS","status":"SKIPPED_NO_DIRECT_DOWNLOAD_URL"},
+    {"source_id":"AGF_SITE_TERMS","status":"SKIPPED_NO_DIRECT_DOWNLOAD_URL"},
+    {"source_id":"AGF_PRIVACY","status":"SKIPPED_NO_DIRECT_DOWNLOAD_URL"}
+  ],
+  "summary": {"SKIPPED_NO_DIRECT_DOWNLOAD_URL": 7},
+  "downloads": 0,
+  "sha256_files": 0,
+  "conclusion": "Execução de validação concluída. O manifesto ainda não contém URLs diretas de arquivos baixáveis; por isso, nenhum documento foi baixado. A rotina não tenta descobrir links nem rastrear páginas."
+}
