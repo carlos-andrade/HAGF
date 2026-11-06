@@ -74,7 +74,17 @@
       "type": "public_download_legal_document",
       "url": "https://lp.agf.com.br/hubfs/Politica-de-Privacidade/Politica-de-Privacidade-AGF-Geral-rev-final-03-12.pdf",
       "download_url": "https://lp.agf.com.br/hubfs/Politica-de-Privacidade/Politica-de-Privacidade-AGF-Geral-rev-final-03-12.pdf",
-      "notes": "PDF público diretamente vinculado em página oficial da AGF; última atualização declarada outubro de 2025. Uso para análise interna, respeitando direitos autorais."
+      "notes": "PDF público diretamente vinculado em página oficial da AGF; última atualização declarada outubro de 2025. Uso para análise interna, respeitando direitos autorais.",
+      "previous_recovery": {
+        "status": "DOWNLOADED",
+        "captured_at_utc": "2026-11-06T16:04:28Z",
+        "filename": "Politica-de-Privacidade-AGF-Geral-rev-final-03-12.pdf",
+        "bytes": 236126,
+        "sha256": "3eade497f8d95802deae454d921881465253c2f2c25039f649f65b0ce1b2d35c",
+        "package": "AGF_RECOVERY_2026-11-06.zip",
+        "github_actions_artifact_id": 13517839326,
+        "execution_report": "research/execucoes/HAGF_PUBLIC_RECOVERY_20261106T160428Z.json"
+      }
     },
     {
       "id": "AGF_MDI_ARTICLE",
