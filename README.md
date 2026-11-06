@@ -24,6 +24,7 @@ Repositório independente para pesquisa documental, mapeamento de fontes públic
 - Inventário atualizado: [Fontes públicas AGF V1.1](research/INVENTARIO_FONTES_PUBLICAS_AGF_2026-11-06_V1.1.md)
 - Plano de preservação automatizada: [Plano V1.1](docs/PLANO_PRESERVACAO_DOCUMENTAL_AGF_V1.1.md)
 - Motor de preservação: [Documentação técnica V1.0](docs/MOTOR_PRESERVACAO_AUTOMATIZADA_V1.0.md)
+- Solicitação de canal oficial de ingestão: [Minuta V1.0 — ainda não enviada](research/SOLICITACAO_CANAL_AUTOMATIZADO_AGF_V1.0.md)
 - Análise do PDF de Privacidade: [Relatório V1.0](research/ANALISE_POLITICA_PRIVACIDADE_AGF_2025_V1.0.md)
 - Comparação de termos e políticas: [Diligência cruzada V1.0](research/DILIGENCIA_CRUZADA_TERMOS_PRIVACIDADE_AGF_V1.0.md)
 - Dicionário técnico: [Métricas AGF e regras de qualidade de dados](knowledge/dicionario_metodologia_agf_v1.0.json)
