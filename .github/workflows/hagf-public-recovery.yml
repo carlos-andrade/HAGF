@@ -1,6 +1,14 @@
 name: HAGF Public Recovery
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - "config/fontes_publicas.json"
+      - "scripts/**"
+      - "tests/**"
+      - ".github/workflows/hagf-public-recovery.yml"
   workflow_dispatch:
 
 permissions:
