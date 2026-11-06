@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.0",
+  "project": "HAGF",
+  "as_of": "2026-11-06",
+  "methodology": [
+    {
+      "id": "DPA_MEDIO",
+      "name": "DPA Médio",
+      "category": "dividend_metric",
+      "source_statement": "Considera a média dos últimos 6 anos.",
+      "formula_status": "PARTIAL",
+      "formula": null,
+      "known_parameters": {
+        "historical_window_years": 6
+      },
+      "unknowns": [
+        "Tratamento de dividendos extraordinários.",
+        "Tratamento de JCP e outros proventos.",
+        "Ajustes por desdobramentos, grupamentos e bonificações.",
+        "Tratamento de exercícios sem distribuição.",
+        "Data de corte e regra de atualização."
+      ],
+      "interpretation": "Indicador histórico de dividendo por ação; a regra completa de normalização não está publicada no artigo consultado.",
+      "source_url": "https://ajuda.agf.com.br/pt-BR/articles/16754007-o-que-significam-preco-teto-dpa-e-yield-on-cost-yoc",
+      "source_type": "AGF_help_center",
+      "confidence": "HIGH_FOR_STATED_WINDOW",
+      "do_not_infer": true
+    },
+    {
+      "id": "DPA_PROJETIVO",
+      "name": "DPA Projetivo",
+      "category": "dividend_metric",
+      "source_statement": "Utiliza a previsão disponível para o período corrente.",
+      "formula_status": "NOT_DISCLOSED",
+      "formula": null,
+      "known_parameters": {
+        "period": "current_period",
+        "basis": "available_forecast"
+      },
+      "unknowns": [
+        "Origem e fornecedor das previsões.",
+        "Modelo de projeção.",
+        "Janela temporal exata.",
+        "Tratamento de revisões e eventos extraordinários."
+      ],
+      "interpretation": "Projeção disponível para o período corrente; não deve ser tratada como dividendo anunciado ou garantido.",
+      "source_url": "https://ajuda.agf.com.br/pt-BR/articles/16754007-o-que-significam-preco-teto-dpa-e-yield-on-cost-yoc",
+      "source_type": "AGF_help_center",
+      "confidence": "HIGH_FOR_STATED_DEFINITION",
+      "do_not_infer": true
+    },
+    {
+      "id": "PRECO_TETO",
+      "name": "Preço Teto",
+      "category": "valuation_reference",
+      "source_statement": "Relaciona o dividendo por ação ao preço do ativo, utilizando como parâmetro um Dividend Yield de 6% ao ano.",
+      "formula_status": "RELATIONSHIP_STATED_EXACT_IMPLEMENTATION_NOT_DISCLOSED",
+      "formula": null,
+      "mathematical_relationship": "DPA / 0.06 is an algebraic interpretation of a 6% yield threshold, not a verified reproduction of the AGF application formula.",
+      "known_parameters": {
+        "reference_dividend_yield": 0.06,
+        "annualized": true,
+        "variants": [
+          "Preço Teto Médio",
+          "Preço Teto Projetivo"
+        ]
+      },
+      "unknowns": [
+        "Precisão, arredondamento e periodicidade da atualização.",
+        "Ajustes por proventos extraordinários.",
+        "Tratamento de eventos societários.",
+        "Possíveis filtros de qualidade ou elegibilidade."
+      ],
+      "interpretation": "Referência metodológica; a própria AGF afirma que não é garantia de rentabilidade nem indicação automática de compra.",
+      "source_url": "https://ajuda.agf.com.br/pt-BR/articles/16754007-o-que-significam-preco-teto-dpa-e-yield-on-cost-yoc",
+      "source_type": "AGF_help_center",
+      "confidence": "HIGH_FOR_6_PERCENT_REFERENCE",
+      "do_not_infer": true
+    },
+    {
+      "id": "YOC",
+      "name": "Yield on Cost",
+      "category": "income_metric",
+      "source_statement": "Mostra a relação entre os proventos recebidos e o preço médio efetivamente pago pelo investidor. Considera os proventos dos últimos 12 meses, desconsiderando o mês atual.",
+      "formula_status": "PARTIAL",
+      "formula": null,
+      "known_parameters": {
+        "lookback_months": 12,
+        "exclude_current_month": true,
+        "denominator_basis": "investor_actual_average_cost"
+      },
+      "unknowns": [
+        "Se o cálculo é por ação ou pela posição total.",
+        "Tratamento de JCP bruto ou líquido.",
+        "Inclusão de amortizações e outros eventos.",
+        "Tratamento de custos e taxas no preço médio."
+      ],
+      "interpretation": "Indicador de renda da posição em relação ao custo efetivo; não equivale ao Dividend Yield sobre o preço de mercado atual.",
+      "source_url": "https://ajuda.agf.com.br/pt-BR/articles/16754007-o-que-significam-preco-teto-dpa-e-yield-on-cost-yoc",
+      "source_type": "AGF_help_center",
+      "confidence": "HIGH_FOR_STATED_LOOKBACK",
+      "do_not_infer": true
+    },
+    {
+      "id": "MDI",
+      "name": "Mapa do Dividendo Inteligente",
+      "category": "event_calendar",
+      "source_statement": "Acompanha períodos em que empresas podem anunciar dividendos e outros proventos, usando informações divulgadas pelas próprias companhias. As datas não são garantidas e podem mudar.",
+      "formula_status": "NOT_DISCLOSED",
+      "formula": null,
+      "known_parameters": {
+        "input_basis": "company_disclosures",
+        "event_type": "potential_dividend_or_corporate_distribution"
+      },
+      "unknowns": [
+        "Modelo de previsão de datas.",
+        "Regras de ponderação e priorização.",
+        "Frequência de atualização.",
+        "Fontes e latência de captura."
+      ],
+      "interpretation": "Ferramenta informativa de acompanhamento; não é calendário garantido nem sinal automático de compra ou venda.",
+      "source_url": "https://ajuda.agf.com.br/pt-BR/articles/16753955-o-que-e-o-mapa-do-dividendo-inteligente-mdi-e-como-interpretar-as-datas",
+      "source_type": "AGF_help_center",
+      "confidence": "HIGH_FOR_STATED_LIMITATIONS",
+      "do_not_infer": true
+    },
+    {
+      "id": "FORMULA_AGF",
+      "name": "Fórmula AGF",
+      "category": "ranking_filter",
+      "source_statement": "A Central de Ajuda informa a existência de filtro Fórmula AGF, mas não divulga a fórmula matemática completa no artigo consultado.",
+      "formula_status": "NOT_DISCLOSED",
+      "formula": null,
+      "known_parameters": {
+        "availability": "ranking_filter"
+      },
+      "unknowns": [
+        "Variáveis utilizadas.",
+        "Pesos e normalizações.",
+        "Limiares e critérios de exclusão.",
+        "Frequência de atualização.",
+        "Tratamento de setores e regimes especiais."
+      ],
+      "interpretation": "Não reproduzir nem aproximar a pontuação proprietária sem fonte explícita.",
+      "source_url": "https://ajuda.agf.com.br/pt-BR/articles/16754013-como-funciona-o-ranking-de-empresas-e-como-interpretar-seus-filtros",
+      "source_type": "AGF_help_center",
+      "confidence": "HIGH_FOR_NON_DISCLOSURE_IN_SOURCE",
+      "do_not_infer": true
+    }
+  ],
+  "data_quality_constraints": [
+    {
+      "id": "B3_HISTORY_START",
+      "statement": "A integração com a B3 considera o histórico disponível a partir de novembro de 2019.",
+      "operational_rule": "Não tratar posições importadas como histórico transacional completo anterior a 2019-11.",
+      "source_url": "https://ajuda.agf.com.br/pt-BR/articles/16753937-minha-carteira-apresenta-divergencias-ou-operacoes-duplicadas-o-que-pode-causar-isso",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "B3_PREHISTORY_ADJUSTMENT",
+      "statement": "Posições anteriores podem ser representadas como uma compra em 01/11/2019 pelo preço de fechamento daquela data.",
+      "operational_rule": "Classificar esse lançamento como ajuste de posição inicial, não como negócio histórico efetivamente executado.",
+      "source_url": "https://ajuda.agf.com.br/pt-BR/articles/16753937-minha-carteira-apresenta-divergencias-ou-operacoes-duplicadas-o-que-pode-causar-isso",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "B3_BROKERAGE_FEES",
+      "statement": "Os dados recebidos pela integração com a B3 não consideram taxas de corretagem.",
+      "operational_rule": "Não presumir que preço médio ou custo importado pela integração inclua taxas de corretagem.",
+      "source_url": "https://ajuda.agf.com.br/pt-BR/articles/16753937-minha-carteira-apresenta-divergencias-ou-operacoes-duplicadas-o-que-pode-causar-isso",
+      "confidence": "HIGH"
+    },
+    {
+      "id": "B3_CORPORATE_ACTIONS",
+      "statement": "Bonificações, desdobramentos, grupamentos e subscrições podem alterar quantidade, valor unitário ou preço médio.",
+      "operational_rule": "Manter eventos societários explícitos na reconciliação de posição e custo.",
+      "source_url": "https://ajuda.agf.com.br/pt-BR/articles/16753937-minha-carteira-apresenta-divergencias-ou-operacoes-duplicadas-o-que-pode-causar-isso",
+      "confidence": "HIGH"
+    }
+  ]
+}
