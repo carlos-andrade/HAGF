@@ -68,6 +68,13 @@
       "url": "https://agf.com.br/política-de-privacidade",
       "download_url": null,
       "notes": "Documento legal; consultar e registrar metadados, sem crawling."
+    },
+    {
+      "id": "AGF_PRIVACY_PDF_2025",
+      "type": "public_download_legal_document",
+      "url": "https://lp.agf.com.br/hubfs/Politica-de-Privacidade/Politica-de-Privacidade-AGF-Geral-rev-final-03-12.pdf",
+      "download_url": "https://lp.agf.com.br/hubfs/Politica-de-Privacidade/Politica-de-Privacidade-AGF-Geral-rev-final-03-12.pdf",
+      "notes": "PDF público diretamente vinculado em página oficial da AGF; última atualização declarada outubro de 2025. Uso para análise interna, respeitando direitos autorais."
     }
   ]
 }
