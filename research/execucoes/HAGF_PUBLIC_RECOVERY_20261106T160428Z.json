@@ -1,0 +1,43 @@
+{
+  "project": "HAGF",
+  "workflow": "HAGF Public Recovery",
+  "run_id": 42248916854,
+  "run_number": 6,
+  "run_url": "https://github.com/carlos-andrade/HAGF/actions/runs/42248916854",
+  "head_sha": "2608923ed4a91536332b3bc6a64b8622d7991cd5",
+  "started_at_utc": "2026-11-06T16:04:21Z",
+  "completed_at_utc": "2026-11-06T16:04:33Z",
+  "status": "completed",
+  "conclusion": "success",
+  "mode": "EXECUTE",
+  "tests": {
+    "total": 6,
+    "passed": 6,
+    "failed": 0
+  },
+  "sources": {
+    "total": 17,
+    "downloaded": 1,
+    "skipped_no_direct_download_url": 16
+  },
+  "downloads": [
+    {
+      "source_id": "AGF_PRIVACY_PDF_2025",
+      "url": "https://lp.agf.com.br/hubfs/Politica-de-Privacidade/Politica-de-Privacidade-AGF-Geral-rev-final-03-12.pdf",
+      "path_in_artifact": "dados/recovery/Politica-de-Privacidade-AGF-Geral-rev-final-03-12.pdf",
+      "bytes": 236126,
+      "content_type": "application/pdf",
+      "pdf_signature": "%PDF-1.7",
+      "sha256": "3eade497f8d95802deae454d921881465253c2f2c25039f649f65b0ce1b2d35c"
+    }
+  ],
+  "artifact": {
+    "id": 13517839326,
+    "name": "hagf-public-recovery",
+    "bytes": 219821,
+    "sha256": "e6dd2095c1d50f396fcf612440704d63bd67962d9bede0ec3d4a9a5c4dd6c6cf",
+    "expires_at": "2026-12-06T16:04:29Z"
+  },
+  "report_json_sha256": "c5e1739f9603c6e9e2598f89556286c411b8cc33d1913034a4d1da5a5289da3a",
+  "note": "PDF foi analisado. O binário permanece no artefato do Actions; não foi publicado no repositório público."
+}
