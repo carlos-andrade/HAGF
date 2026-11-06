@@ -138,6 +138,48 @@
       "url": "https://institucional.acoesgarantem.com.br/blog/",
       "download_url": null,
       "notes": "Índice público do blog institucional; não fazer crawling."
+    },
+    {
+      "id": "AGF_B3_SYNC_DIVERGENCES",
+      "type": "help_article_reference",
+      "url": "https://ajuda.agf.com.br/pt-BR/articles/16753937-minha-carteira-apresenta-divergencias-ou-operacoes-duplicadas-o-que-pode-causar-isso",
+      "download_url": null,
+      "notes": "Artigo público sobre divergências, taxas, eventos societários, ajustes e limite histórico da integração B3."
+    },
+    {
+      "id": "AGF_SOLUTION_COMPARISON",
+      "type": "help_article_reference",
+      "url": "https://ajuda.agf.com.br/pt-BR/articles/16736754-como-saber-qual-solucao-e-mais-adequada-para-mim",
+      "download_url": null,
+      "notes": "Artigo público que diferencia Educacional, App, Assessoria e Wealth."
+    },
+    {
+      "id": "AGF_WEALTH_MODELS",
+      "type": "help_article_reference",
+      "url": "https://ajuda.agf.com.br/pt-BR/articles/16808293-quais-sao-os-modelos-de-atendimento-do-agf-wealth-e-como-funcionam",
+      "download_url": null,
+      "notes": "Artigo público sobre Consultoria BTG, Carteira Administrada e Consultoria Externa."
+    },
+    {
+      "id": "AGF_WEALTH_CUSTOM_STRATEGY",
+      "type": "help_article_reference",
+      "url": "https://ajuda.agf.com.br/pt-BR/articles/16808134-como-e-definida-a-estrategia-da-minha-carteira-todos-os-clientes-recebem-a-mesma-composicao",
+      "download_url": null,
+      "notes": "Artigo público sobre personalização da estratégia Wealth por objetivos, risco, liquidez e patrimônio."
+    },
+    {
+      "id": "AGF_PRODUCT_ENTITLEMENTS",
+      "type": "help_article_reference",
+      "url": "https://ajuda.agf.com.br/pt-BR/articles/16736710-ao-contratar-um-produto-do-agf-tenho-acesso-automatico-aos-demais",
+      "download_url": null,
+      "notes": "Artigo público sobre contratação e direitos de acesso separados entre App, cursos, Assessoria e Wealth."
+    },
+    {
+      "id": "AGF_APP_B3_SYNC_GUIDE_2024",
+      "type": "editorial_reference",
+      "url": "https://institucional.acoesgarantem.com.br/blog/aplicativo-agf-conheca-todas-as-facilidades-e-funcionalidades-do-app/",
+      "download_url": null,
+      "notes": "Artigo institucional de 13/12/2024 descrevendo a sincronização da carteira com a B3; tratar como material histórico e comparar com a ajuda atual."
     }
   ]
 }
