@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "project": "HAGF",
+  "policy": {
+    "mode": "explicit_direct_download_only",
+    "no_crawling": true,
+    "no_login": true,
+    "no_paywall_bypass": true,
+    "no_api_discovery": true,
+    "no_personal_data": true,
+    "allowed_hosts": [
+      "agf.com.br",
+      "www.agf.com.br",
+      "lp.agf.com.br",
+      "institucional.acoesgarantem.com.br",
+      "ajuda.agf.com.br",
+      "agfmais.s3.us-east-2.amazonaws.com"
+    ],
+    "max_file_mb": 80,
+    "request_timeout_seconds": 25
+  },
+  "sources": [
+    {
+      "id": "AGF_SITE",
+      "type": "institutional_reference",
+      "url": "https://agf.com.br/",
+      "download_url": null,
+      "notes": "Referência institucional. Não é alvo de crawler."
+    },
+    {
+      "id": "AGF_SOBRE",
+      "type": "institutional_reference",
+      "url": "https://agf.com.br/sobre-nos",
+      "download_url": null,
+      "notes": "Página institucional; registrar fatos e referências por pesquisa documental."
+    },
+    {
+      "id": "AGF_AJUDA",
+      "type": "help_center_reference",
+      "url": "https://ajuda.agf.com.br/pt-BR/",
+      "download_url": null,
+      "notes": "Índice público da Central de Ajuda; não fazer coleta automatizada de artigos."
+    },
+    {
+      "id": "AGF_EDUCACIONAL",
+      "type": "help_collection_reference",
+      "url": "https://ajuda.agf.com.br/pt-BR/collections/19734547-agf-educacional",
+      "download_url": null,
+      "notes": "Referência de coleção pública; sem crawling."
+    },
+    {
+      "id": "AGF_APP_TERMS",
+      "type": "legal_document_reference",
+      "url": "https://agfmais.s3.us-east-2.amazonaws.com/termo_de_uso.html",
+      "download_url": null,
+      "notes": "Documento legal HTML consultável; não presumir permissão para redistribuição integral."
+    },
+    {
+      "id": "AGF_SITE_TERMS",
+      "type": "legal_document_reference",
+      "url": "https://lp.agf.com.br/termos-e-condicoes-de-uso",
+      "download_url": null,
+      "notes": "Documento legal; consultar e registrar metadados, sem crawling."
+    },
+    {
+      "id": "AGF_PRIVACY",
+      "type": "legal_document_reference",
+      "url": "https://agf.com.br/política-de-privacidade",
+      "download_url": null,
+      "notes": "Documento legal; consultar e registrar metadados, sem crawling."
+    }
+  ]
+}
