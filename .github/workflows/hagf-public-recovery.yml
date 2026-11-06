@@ -1,17 +1,7 @@
 name: HAGF Public Recovery
 
 on:
-  push:
-    paths:
-      - "config/fontes_publicas.json"
-      - ".github/workflows/hagf-public-recovery.yml"
   workflow_dispatch:
-    inputs:
-      execute_downloads:
-        description: "Baixar somente URLs diretas explicitamente declaradas no manifesto"
-        required: true
-        type: boolean
-        default: false
 
 permissions:
   contents: read
@@ -29,24 +19,16 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Validate and execute
-        env:
-          EXECUTE_DOWNLOADS: ${{ github.event_name == 'push' || inputs.execute_downloads }}
+      - name: Validate collector and run unit tests
         run: |
           python -m py_compile scripts/hagf_public_recovery.py
           python -m unittest discover -s tests -v
-          if [ "$EXECUTE_DOWNLOADS" = "true" ]; then
-            python scripts/hagf_public_recovery.py --execute
-          else
-            python scripts/hagf_public_recovery.py
-          fi
+          python scripts/hagf_public_recovery.py
 
-      - name: Upload execution report and downloaded files
+      - name: Upload validation report
         uses: actions/upload-artifact@v4
         with:
-          name: hagf-public-recovery
-          path: |
-            research/execucoes/*.json
-            dados/recovery/*
+          name: hagf-public-recovery-validation
+          path: research/execucoes/*.json
           if-no-files-found: warn
           retention-days: 30
